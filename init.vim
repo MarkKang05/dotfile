@@ -23,6 +23,8 @@ set cindent
 set cursorline
 set relativenumber
 set signcolumn=yes
+set background=dark
+set termguicolors
 
 filetype indent on    " 파일 종류에 따른 구문 강조
 if has("syntax")
@@ -49,12 +51,13 @@ Plug 'nono/vim-handlebars'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'sbdchd/neoformat'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-"Plug 'miyakogi/seiya.vim'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
 "set color scheme
 "colorscheme jellybeans "curl -O https://raw.githubusercontent.com/nanotech/jellybeans.vim/master/colors/jellybeans.vim
+
 "colorscheme desert
 "colorscheme onehalfdark
 "let g:airline_theme='onehalfdark'
@@ -62,7 +65,7 @@ call plug#end()
 colorscheme codedark
 let g:airline_theme = 'codedark'
 
-let g:seiya_auto_enable=0
+"let g:seiya_auto_enable=1
 
 "highlight Normal ctermbg=none
 "highlight NonText ctermbg=none
@@ -92,9 +95,47 @@ let g:prettier#config#trailing_comma = 'all'
 
 "let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+"let g:startify_custom_header =
+"      \ 'startify#center(startify#fortune#cowsay())'
+"startify#center([strings])     center list of strings without removing
+"let g:startify_custom_header = [
+"        \ '                                 ________  __ __        ',
+"        \ '            __                  /\_____  \/\ \\ \       ',
+"        \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+"        \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+"        \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+"        \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+"        \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+"        \ ]
 
-
+"let g:startify_custom_header = [
+"        \ '   ────────╔╗╔╗────────╔═══╦═══╗', 
+"        \ '   ╔══╦═╗╔╦╣╠╣╠╦═╗╔═╦╦═╣╔═╗║╔══╝',
+"        \ '   ║║║║╬╚╣╔╣═╣═╣╬╚╣║║║╬║║║║║╚══╗',
+"        \ '   ╚╩╩╩══╩╝╚╩╩╩╩══╩╩═╬╗║║║║╠══╗║',
+"        \ '   ──────────────────╚═╣╚═╝╠══╝║',
+"        \ ]
 "rainbow pair
+"let g:startify_custom_header = [
+"            \ '    ███╗░░░███╗░█████╗░██████╗░██╗░░██╗██╗░░██╗░█████╗░███╗░░██╗░██████╗░░█████╗░███████╗',
+"            \ '    ████╗░████║██╔══██╗██╔══██╗██║░██╔╝██║░██╔╝██╔══██╗████╗░██║██╔════╝░██╔══██╗██╔════╝',
+"            \ '    ██╔████╔██║███████║██████╔╝█████═╝░█████═╝░███████║██╔██╗██║██║░░██╗░██║░░██║██████╗░',
+"            \ '    ██║╚██╔╝██║██╔══██║██╔══██╗██╔═██╗░██╔═██╗░██╔══██║██║╚████║██║░░╚██╗██║░░██║╚════██╗',
+"            \ '    ██║░╚═╝░██║██║░░██║██║░░██║██║░╚██╗██║░╚██╗██║░░██║██║░╚███║╚██████╔╝╚█████╔╝██████╔╝',
+"            \ '    ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░░╚════╝░╚═════╝░'
+"            \ ]
+ 
+let g:startify_custom_header = [
+            \ '    ███╗░░██╗███████╗░█████╗░██╗░░░██╗██╗███╗░░░███╗',
+            \ '    ████╗░██║██╔════╝██╔══██╗██║░░░██║██║████╗░████║',
+            \ '    ██╔██╗██║█████╗░░██║░░██║╚██╗░██╔╝██║██╔████╔██║',
+            \ '    ██║╚████║██╔══╝░░██║░░██║░╚████╔╝░██║██║╚██╔╝██║',
+            \ '    ██║░╚███║███████╗╚█████╔╝░░╚██╔╝░░██║██║░╚═╝░██║',
+            \ '    ╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝',
+            \ ]
+
+
+
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -105,6 +146,7 @@ let g:rainbow_load_separately = [
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 "let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'magenta']
+
 "vim indent guide
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_indent_level=2
@@ -122,3 +164,24 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+
+
+nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
+nnoremap <C-x> :!./%:r.out
+autocmd FileType cpp nnoremap <buffer> <F5> :w<CR>:!g++ % -o %:r && ./%:r <CR>
+
+set splitbelow
+
+
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+
+"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=none ctermbg=none
+hi LineNr guibg=none ctermbg=none
+hi Folded guibg=none ctermbg=none
+hi NonText guibg=none ctermbg=none
+hi SpecialKey guibg=none ctermbg=none
+hi VertSplit guibg=none ctermbg=none
+hi SignColumn guibg=none ctermbg=none
+hi EndOfBuffer guibg=none ctermbg=none
