@@ -49,7 +49,7 @@ Plug 'nono/vim-handlebars'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'sbdchd/neoformat'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'miyakogi/seiya.vim'
+"Plug 'miyakogi/seiya.vim'
 
 call plug#end()
 
@@ -62,7 +62,7 @@ call plug#end()
 colorscheme codedark
 let g:airline_theme = 'codedark'
 
-let g:seiya_auto_enable=1
+let g:seiya_auto_enable=0
 
 "highlight Normal ctermbg=none
 "highlight NonText ctermbg=none
@@ -105,7 +105,6 @@ let g:rainbow_load_separately = [
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 "let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'magenta']
-
 "vim indent guide
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_indent_level=2
