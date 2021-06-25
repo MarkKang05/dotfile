@@ -1,1 +1,12 @@
-/home/markkang05/.config/nvim/coc-settings.json
+{
+    "clangd.semanticHighlighting": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true ,
+    "diagnostic.errorSign": "E",
+    "diagnostic.warningSign": "W",
+    "diagnostic.infoSign": "I",
+    "diagnostic.hintSign": "H",
+    "diagnostic-languageserver.filetypes": {
+        "sh": "shellcheck"
+    },
+    "suggest.disableMenu": false
+}
