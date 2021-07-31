@@ -17,7 +17,7 @@ set showmatch    " 다른 코딩 프로그램처럼 매칭되는 괄호 보여�
 set wmnu    " tab 을 눌렀을 때 자동완성 가능한 목록
 set mouse=a    " 커서 이동을 마우스로 가능하도록
 set autoindent
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set pumheight=7
 set cindent
 set cursorline
@@ -30,6 +30,7 @@ filetype indent on    " 파일 종류에 따른 구문 강조
 if has("syntax")
     syntax on
 endif
+let mapleader=","
 
 "set plugin
 call plug#begin('~/.vim/plugged')
@@ -52,7 +53,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'sbdchd/neoformat'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'mhinz/vim-startify'
-
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 "set color scheme
@@ -166,11 +167,11 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 
 
-nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
-nnoremap <C-x> :!./%:r.out
+"nnoremap <C-c> :!g++ -o  %:r.out % -std=c++11<Enter>
 autocmd FileType cpp nnoremap <buffer> <F5> :w<CR>:!g++ % -o %:r && ./%:r <CR>
 
 set splitbelow
+autocmd BufNewFile *.cpp 0r ~/.vim/skeleton.cpp
 
 
 "highlight Normal ctermbg=none
@@ -185,3 +186,24 @@ hi SpecialKey guibg=none ctermbg=none
 hi VertSplit guibg=none ctermbg=none
 hi SignColumn guibg=none ctermbg=none
 hi EndOfBuffer guibg=none ctermbg=none
+"map <F8> :w <CR> :!g++ % -o %< <CR>:term ./%<<CR>
+map <C-c> :w <CR> :!g++ % -o ./bin/%<.out <CR>:term ./bin/%<.out<CR><Enter>
+nnoremap <C-x> :bd!<Enter>
+nnoremap <C-a> ggVG
+" NERD Commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+xnoremap <C-\> gc
